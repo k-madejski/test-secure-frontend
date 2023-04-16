@@ -12,6 +12,7 @@ describe('Register page', () => {
 
     it('should successfully register', () => {
         // given
+        cy.percySnapshot('before_register');
         signupMocks.successfulRegister()
         const user = getRandomUser()
 
@@ -21,6 +22,7 @@ describe('Register page', () => {
         // then
         cy.url().should('contain', '/login')
         verifyLoginRequestWasCorrectlyBuild(user)
+        cy.percySnapshot('after_register');
     })
 
     it('should fail to register if user already exists', () => {

@@ -11,6 +11,7 @@ describe('Login page', () => {
 
     it('should successfully login', () => {
         // given
+        cy.percySnapshot('before_login');
         signinMocks.successfulLogin()
         usersMocks.testUsers()
 
@@ -23,7 +24,7 @@ describe('Login page', () => {
             username: 'admin',
             password: 'admin'
         })
-        cy.percySnapshot('login');
+        cy.percySnapshot('after_login');
     })
 
     it('should fail to login', () => {
@@ -44,7 +45,7 @@ describe('Login page', () => {
 
         // then
         cy.url().should('contain', 'register')
-        cy.percySnapshot('register');
+
     })
 
     it('should trigger frontend validation', () => {
