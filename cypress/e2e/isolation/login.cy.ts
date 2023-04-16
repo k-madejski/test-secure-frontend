@@ -23,6 +23,7 @@ describe('Login page', () => {
             username: 'admin',
             password: 'admin'
         })
+        cy.percySnapshot('login');
     })
 
     it('should fail to login', () => {
@@ -43,6 +44,7 @@ describe('Login page', () => {
 
         // then
         cy.url().should('contain', 'register')
+        cy.percySnapshot('register');
     })
 
     it('should trigger frontend validation', () => {
